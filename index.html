@@ -118,6 +118,20 @@
   .path .cmd{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--bg);border:1px solid var(--line);
     border-radius:9px;padding:10px 12px;color:var(--ink);margin:0 0 14px;line-height:1.5;}
 
+  /* command box */
+  .cmd-box{display:flex;align-items:stretch;max-width:780px;margin:30px auto 12px;background:var(--ink);
+    border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);}
+  .cmd-box code{flex:1;color:#ffe7d6;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.5;
+    padding:18px 20px;text-align:left;word-break:break-word;}
+  .cmd-box .copybtn{flex:0 0 auto;border:0;background:var(--accent);color:#fff;font:inherit;font-weight:700;
+    font-size:14px;padding:0 24px;cursor:pointer;transition:background .15s;}
+  .cmd-box .copybtn:hover{background:var(--accent-d);}
+  .cmd-box .copybtn.done{background:var(--green);}
+  .cmd-note{text-align:center;color:var(--muted);font-size:13.5px;max-width:620px;margin:0 auto;}
+  .pdf-fallback{text-align:center;margin-top:24px;font-size:14px;color:var(--muted);}
+  .pdf-fallback a{color:var(--accent-d);font-weight:600;text-decoration:none;}
+  .pdf-fallback a:hover{text-decoration:underline;}
+
   /* CTA bands */
   .band{border-radius:22px;padding:40px 44px;margin:22px 0;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
   .band.master{background:var(--grad);color:#fff;box-shadow:0 24px 60px rgba(194,95,44,.28);}
@@ -168,6 +182,9 @@
     .band h3{font-size:22px;}
     .band .bbtn{width:100%;justify-content:center;}
     footer .row{flex-direction:column;align-items:flex-start;gap:14px;}
+    .cmd-box{flex-direction:column;}
+    .cmd-box code{font-size:13px;padding:16px 16px 12px;}
+    .cmd-box .copybtn{padding:13px;width:100%;}
   }
 </style>
 </head>
@@ -192,9 +209,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         Vedi la demo live
       </a>
-      <a class="btn btn-ghost" href="guida/claude-linkedin-dashboard-guida.pdf" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
-        Scarica la guida PDF
+      <a class="btn btn-ghost" href="#fai">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l3 3-3 3M13 15h3M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>
+        Come si fa
       </a>
     </div>
     <p class="micro">Gratis e open source &middot; <b>la demo qui sotto sono i miei numeri veri</b> di un anno su LinkedIn</p>
@@ -284,11 +301,19 @@
   </div>
 </section>
 
-<!-- PATHS -->
-<section class="blk wrap">
+<!-- METHOD -->
+<section class="blk wrap" id="fai">
   <p class="seclabel">Come la fai tua</p>
-  <h2 class="sech">Te la costruisce Claude. Due strade.</h2>
-  <p class="secsub">Serve far girare un piccolo script Python: per questo si usa Claude, non la chat semplice. Scegli la tua superficie.</p>
+  <h2 class="sech">Incolla una riga a Claude. Fa il resto.</h2>
+  <p class="secsub">Il modo piu veloce: dai questo comando a Claude (Claude Code, Cowork, o claude.ai con accesso al web). Legge le istruzioni e costruisce la dashboard insieme a te.</p>
+
+  <div class="cmd-box">
+    <code id="cmd">read https://claude-linkedin-dashboard.vercel.app/skill.md and help me create my LinkedIn dashboard</code>
+    <button class="copybtn" type="button" onclick="copyCmd()">Copia</button>
+  </div>
+  <p class="cmd-note">Claude ti chiede il tuo export .xlsx di LinkedIn (ti spiega anche come prenderlo) e parte da li. Niente da scaricare.</p>
+
+  <p class="seclabel" style="margin-top:46px;">Oppure, nel dettaglio</p>
   <div class="paths">
     <div class="path">
       <div class="ph">Strada 1 &middot; consigliata</div>
@@ -315,6 +340,7 @@
       <a class="pbtn" href="https://github.com/marcogalluccio/claude-linkedin-dashboard/releases" target="_blank" rel="noopener">Scarica la skill per Cowork &#8599;</a>
     </div>
   </div>
+  <p class="pdf-fallback">Preferisci un file da leggere? <a href="guida/claude-linkedin-dashboard-guida.pdf" download>Scarica la guida PDF</a></p>
 </section>
 
 <!-- CTA: MASTER CLAUDE -->
@@ -350,6 +376,17 @@
     <div class="made">Made with Claude</div>
   </div>
 </footer>
+
+<script>
+function copyCmd(){
+  var t=document.getElementById('cmd').innerText.trim();
+  var b=document.querySelector('.cmd-box .copybtn');
+  navigator.clipboard.writeText(t).then(function(){
+    b.textContent='Copiato'; b.classList.add('done');
+    setTimeout(function(){b.textContent='Copia'; b.classList.remove('done');},1800);
+  });
+}
+</script>
 
 </body>
 </html>
