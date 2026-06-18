@@ -1,0 +1,7 @@
+ingest.py
+cowork_delta.py
+skills/
+cowork/
+guida/*.html
+*.zip
+.git/
