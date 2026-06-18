@@ -1693,7 +1693,7 @@ window.DATA = {
   },
   {
    "rank": 37,
-   "hook": "Ieri ho passato tre ore con il team di Federpesca per portare Claude Cowork dentro i loro processi.",
+   "hook": "Ieri ho passato tre ore con il team di un'associazione di categoria per portare Claude Cowork dentro i loro processi.",
    "type": "Originale",
    "pillar": "Consulting/Delivery",
    "group": "Consulting",
