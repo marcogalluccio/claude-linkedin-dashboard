@@ -31,8 +31,14 @@ git clone https://github.com/marcogalluccio/claude-linkedin-dashboard
 cd claude-linkedin-dashboard
 ```
 
-In a sandbox without git, download the raw files instead (same repo, branch `main`): `dashboard.html`
-and `ingest.py`. You will also create a tiny empty qualitative file in Step 3.
+In a sandbox without git, download the raw files instead (branch `main`):
+
+```
+curl -O https://raw.githubusercontent.com/marcogalluccio/claude-linkedin-dashboard/main/dashboard.html
+curl -O https://raw.githubusercontent.com/marcogalluccio/claude-linkedin-dashboard/main/ingest.py
+```
+
+You will also create a tiny empty qualitative file in Step 3.
 
 ## Step 2 — get the user's LinkedIn export
 
