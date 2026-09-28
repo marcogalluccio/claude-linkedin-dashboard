@@ -12,8 +12,8 @@ the two halves of your data:
 You drop in two inputs, run one Python script, and reopen the HTML. No server, no build step, no
 framework. It opens straight from `file://` and works fully offline.
 
-**Live demo (real numbers):** https://claude-linkedin-dashboard.vercel.app/demo
-**Landing page:** https://claude-linkedin-dashboard.vercel.app
+**Live demo (real numbers):** https://marcogalluccio.com/claude-linkedin-dashboard/demo/
+**Landing page:** https://marcogalluccio.com/claude-linkedin-dashboard/
 
 ## Fastest way: one line to Claude
 
@@ -21,7 +21,7 @@ Paste this to Claude (Claude Code, Cowork, or claude.ai with web access). It rea
 builds the dashboard with you, no download:
 
 ```
-read https://claude-linkedin-dashboard.vercel.app/skill.md and help me create my LinkedIn dashboard
+read https://marcogalluccio.com/claude-linkedin-dashboard/skill.md and help me create my LinkedIn dashboard
 ```
 
 ## Which Claude do you use? / Quale Claude usi?
